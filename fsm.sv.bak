@@ -1,0 +1,48 @@
+module fsm(input logic clk, loadin, runin, output logic load, run);
+typedef enum logic [1:0] { s_idle, s_load, s_run } fsmstate;
+fsmstate current_state, next_state = idle;
+
+always_ff @(posedge clk) begin
+    current_state <= next_state;
+end
+
+
+always_comb begin
+    case(current_state)
+        idle:
+            case({loadin, runin})
+                2'b00: // ~load, ~run
+                    next_state <= idle;
+                2'b11: // load, run
+                    next_state <= idle;
+                2'b10: // Load, ~run
+                    next_state <= load;
+                2'b01: // ~load, run
+                    next_state <= run;
+            endcase
+        load:
+            case({loadin, runin})
+                2'b00: // ~load, ~run
+                    next_state <= idle;
+                2'b11: // load, run
+                    next_state <= idle;
+                2'b10: // Load, ~run
+                    next_state <= load;
+                2'b01: // ~load, run
+                    next_state <= run;
+            endcase
+        run:
+            case({loadin, runin})
+                2'b00: // ~load, ~run
+                    next_state <= idle;
+                2'b11: // load, run
+                    next_state <= idle;
+                2'b10: // Load, ~run
+                    next_state <= idle;
+                2'b01: // ~load, run
+                    next_state <= run;
+            endcase
+    endcase
+end
+
+

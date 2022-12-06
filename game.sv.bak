@@ -1,0 +1,55 @@
+module game #(
+    parameter HEIGHT=18,
+    parameter WIDTH=18
+    )
+(input logic clk, load, run, reset, input logic [0:WIDTH-1] data_in, input logic [0:HEIGHT-1][0:WIDTH-1] board, output logic [0:HEIGHT-1][0:WIDTH-1] next_board);
+int loadrow = 0;
+always_ff @(posedge clk) begin
+    if(reset)
+        loadrow <= 0;
+    else
+    if(load && loadrow < HEIGHT) begin
+        board[loadrow][0:WIDTH-1] <= data_in;
+        loadrow <= loadrow+1;
+    end
+    else if(run) begin
+        for(int i=0; i<HEIGHT; i++) begin
+            for(int j=0; j<WIDTH; j++) begin
+                if(board[i][j]) begin // board[i,j] is currently alive
+                    case({val(i-1,j-1),val(i-1,j),val(i-1,j+1),val(i,j-1),val(i,j+1),val(i+1,j-1),val(i+1,j),val(i+1,j+1)})
+                        8'b00000011:
+                            next_board[i][j] <= 1;
+                        8'b00000111:
+                            next_board[i][j] <= 1;
+                        8'b00000110:
+                            next_board
+
+                    endcase
+
+
+                end
+				else begin // board[i,j] is currently dead
+
+                end
+            end
+        end
+    end
+end
+
+function logic val(input int x, y);
+    if (~inbounds(x,y)) begin
+        return 0;
+    end
+    else begin
+        return board[x][y];
+    end
+endfunction : val
+
+function logic inbounds(input int x, input int y);
+if (x < 0 || y < 0 || x > HEIGHT || y > WIDTH)
+    return 0;
+else
+    return 1;
+endfunction : inbounds
+
+endmodule

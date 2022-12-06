@@ -1,0 +1,25 @@
+module vga(
+    input clk_25,
+    output logic [2:0] pixel,
+    output logic hsync_out,
+    output logic vsync_out
+);
+    wire inDisplayArea;
+    wire [9:0] CounterX;
+
+    vgasync hvsync(
+      .clk(clk_25),
+      .vga_h_sync(hsync_out),
+      .vga_v_sync(vsync_out),
+      .inDisplayArea(inDisplayArea)
+    );
+
+    always @(posedge clk_25)
+    begin
+      if (inDisplayArea)
+        pixel <= CounterX[9:6];
+      else
+        pixel <= 3'b000;
+    end
+
+endmodule

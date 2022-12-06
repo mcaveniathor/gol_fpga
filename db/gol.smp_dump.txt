@@ -1,0 +1,7 @@
+
+State Machine - |gol|fsm:fsm_inst|current_state
+Name current_state.s_run current_state.s_reset current_state.s_load current_state.s_idle 
+current_state.s_idle 0 0 0 0 
+current_state.s_load 0 0 1 1 
+current_state.s_reset 0 1 0 1 
+current_state.s_run 1 0 0 1 

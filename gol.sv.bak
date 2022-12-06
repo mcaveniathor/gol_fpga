@@ -1,0 +1,42 @@
+const int HEIGHT = 32;
+const int WIDTH = 32;
+
+module gol(input logic clk);
+
+
+function logic[0:7] neighbors(input int x, y, input logic board [0:HEIGHT-1][0:WIDTH-1]);
+logic neighbors [0:7] = '{0,0,0,0,0,0,0,0};
+if ~inbounds(x,y) begin
+    return 0;
+end
+else begin
+    neighbors[0] <= value_at(x-1, y-1, board);
+    neighbors[1] <= value_at(x-1, y, board);
+    neighbors[2] <= value_at(x-1, y+1, board);
+    neighbors[3] <= value_at(x, y-1, board);
+    neighbors[4] <= value_at(x, y+1, board);
+    neighbors[5] <= value_at(x+1, y-1, board);
+    neighbors[6] <= value_at(x+1, y, board);
+    neighbors[7] <= value_at(x+1, y+1, board);
+end
+
+endfunction: alive_next_tick
+
+function logic inbounds(input int x, input int y);
+if (x < 0 || y < 0 || x > HEIGHT || y > WIDTH)
+begin
+    return 0;
+end
+return 1;
+endfunction : inbounds
+
+function logic value_at(input int x, y, input logic board [0:HEIGHT-1][0:WIDTH-1]);
+    if ~inbounds(x,y) begin
+        return 0;
+    end
+    else begin
+        return board[x][y];
+    end
+endfunction : value_at
+
+endmodule

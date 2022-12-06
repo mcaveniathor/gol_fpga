@@ -1,0 +1,590 @@
+Analysis & Synthesis report for gol
+Tue Dec  6 11:37:13 2022
+Quartus Prime Version 21.1.1 Build 850 06/23/2022 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |gol|fsm:fsm_inst|current_state
+  9. Registers Removed During Synthesis
+ 10. General Register Statistics
+ 11. Inverted Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Parameter Settings for User Entity Instance: Top-level Entity: |gol
+ 14. Parameter Settings for User Entity Instance: game:game_inst
+ 15. Parameter Settings for User Entity Instance: vga:vga_inst
+ 16. Post-Synthesis Netlist Statistics for Top Partition
+ 17. Elapsed Time Per Partition
+ 18. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2022  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Tue Dec  6 11:37:13 2022       ;
+; Quartus Prime Version              ; 21.1.1 Build 850 06/23/2022 SJ Lite Edition ;
+; Revision Name                      ; gol                                         ;
+; Top-level Entity Name              ; gol                                         ;
+; Family                             ; Cyclone IV E                                ;
+; Total logic elements               ; 3,574                                       ;
+;     Total combinational functions  ; 3,527                                       ;
+;     Dedicated logic registers      ; 774                                         ;
+; Total registers                    ; 774                                         ;
+; Total pins                         ; 451                                         ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; EP4CE115F29C7      ;                    ;
+; Top-level entity name                                            ; gol                ; gol                ;
+; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 24          ;
+; Maximum allowed            ; 16          ;
+;                            ;             ;
+; Average used               ; 1.01        ;
+; Maximum used               ; 16          ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.1%      ;
+;     Processor 3            ;   0.1%      ;
+;     Processor 4            ;   0.1%      ;
+;     Processor 5            ;   0.1%      ;
+;     Processor 6            ;   0.1%      ;
+;     Processor 7            ;   0.1%      ;
+;     Processor 8            ;   0.1%      ;
+;     Processors 9-16        ;   0.0%      ;
++----------------------------+-------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                           ;
++----------------------------------+-----------------+------------------------------+------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path       ; Library ;
++----------------------------------+-----------------+------------------------------+------------------------------------+---------+
+; vgasync.sv                       ; yes             ; User SystemVerilog HDL File  ; /home/thor/src/gol/vgasync.sv      ;         ;
+; vga.sv                           ; yes             ; User SystemVerilog HDL File  ; /home/thor/src/gol/vga.sv          ;         ;
+; game.sv                          ; yes             ; User SystemVerilog HDL File  ; /home/thor/src/gol/game.sv         ;         ;
+; falling_edge.sv                  ; yes             ; User SystemVerilog HDL File  ; /home/thor/src/gol/falling_edge.sv ;         ;
+; fsm.sv                           ; yes             ; User SystemVerilog HDL File  ; /home/thor/src/gol/fsm.sv          ;         ;
+; gol.sv                           ; yes             ; User SystemVerilog HDL File  ; /home/thor/src/gol/gol.sv          ;         ;
++----------------------------------+-----------------+------------------------------+------------------------------------+---------+
+
+
++------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                ;
++---------------------------------------------+--------------+
+; Resource                                    ; Usage        ;
++---------------------------------------------+--------------+
+; Estimated Total logic elements              ; 3,574        ;
+;                                             ;              ;
+; Total combinational functions               ; 3527         ;
+; Logic element usage by number of LUT inputs ;              ;
+;     -- 4 input functions                    ; 1332         ;
+;     -- 3 input functions                    ; 2069         ;
+;     -- <=2 input functions                  ; 126          ;
+;                                             ;              ;
+; Logic elements by mode                      ;              ;
+;     -- normal mode                          ; 3478         ;
+;     -- arithmetic mode                      ; 49           ;
+;                                             ;              ;
+; Total registers                             ; 774          ;
+;     -- Dedicated logic registers            ; 774          ;
+;     -- I/O registers                        ; 0            ;
+;                                             ;              ;
+; I/O pins                                    ; 451          ;
+;                                             ;              ;
+; Embedded Multiplier 9-bit elements          ; 0            ;
+;                                             ;              ;
+; Maximum fan-out node                        ; vga_clk~reg0 ;
+; Maximum fan-out                             ; 773          ;
+; Total fan-out                               ; 16191        ;
+; Average fan-out                             ; 3.11         ;
++---------------------------------------------+--------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                    ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------+--------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name              ; Entity Name  ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------+--------------+--------------+
+; |gol                       ; 3527 (1)            ; 774 (2)                   ; 0           ; 0            ; 0       ; 0         ; 451  ; 0            ; |gol                             ; gol          ; work         ;
+;    |falling_edge:load_fe|  ; 0 (0)               ; 2 (2)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |gol|falling_edge:load_fe        ; falling_edge ; work         ;
+;    |falling_edge:reset_fe| ; 1 (1)               ; 2 (2)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |gol|falling_edge:reset_fe       ; falling_edge ; work         ;
+;    |falling_edge:run_fe|   ; 0 (0)               ; 2 (2)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |gol|falling_edge:run_fe         ; falling_edge ; work         ;
+;    |fsm:fsm_inst|          ; 4 (4)               ; 3 (3)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |gol|fsm:fsm_inst                ; fsm          ; work         ;
+;    |game:game_inst|        ; 3193 (3193)         ; 716 (716)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |gol|game:game_inst              ; game         ; work         ;
+;    |vga:vga_inst|          ; 328 (286)           ; 47 (24)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |gol|vga:vga_inst                ; vga          ; work         ;
+;       |vgasync:hvsync|     ; 42 (42)             ; 23 (23)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |gol|vga:vga_inst|vgasync:hvsync ; vgasync      ; work         ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------+--------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------------------------------+
+; State Machine - |gol|fsm:fsm_inst|current_state                                                                   ;
++-----------------------+---------------------+-----------------------+----------------------+----------------------+
+; Name                  ; current_state.s_run ; current_state.s_reset ; current_state.s_load ; current_state.s_idle ;
++-----------------------+---------------------+-----------------------+----------------------+----------------------+
+; current_state.s_idle  ; 0                   ; 0                     ; 0                    ; 0                    ;
+; current_state.s_load  ; 0                   ; 0                     ; 1                    ; 1                    ;
+; current_state.s_reset ; 0                   ; 1                     ; 0                    ; 1                    ;
+; current_state.s_run   ; 1                   ; 0                     ; 0                    ; 1                    ;
++-----------------------+---------------------+-----------------------+----------------------+----------------------+
+
+
++----------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                     ;
++-----------------------------------------+----------------------------------------------+
+; Register name                           ; Reason for Removal                           ;
++-----------------------------------------+----------------------------------------------+
+; game:game_inst|next_board[0][19]        ; Merged with game:game_inst|next_board[0][0]  ;
+; game:game_inst|next_board[1][19]        ; Merged with game:game_inst|next_board[1][0]  ;
+; game:game_inst|next_board[2][19]        ; Merged with game:game_inst|next_board[2][0]  ;
+; game:game_inst|next_board[3][19]        ; Merged with game:game_inst|next_board[3][0]  ;
+; game:game_inst|next_board[4][19]        ; Merged with game:game_inst|next_board[4][0]  ;
+; game:game_inst|next_board[5][19]        ; Merged with game:game_inst|next_board[5][0]  ;
+; game:game_inst|next_board[6][19]        ; Merged with game:game_inst|next_board[6][0]  ;
+; game:game_inst|next_board[7][19]        ; Merged with game:game_inst|next_board[7][0]  ;
+; game:game_inst|next_board[8][19]        ; Merged with game:game_inst|next_board[8][0]  ;
+; game:game_inst|next_board[9][19]        ; Merged with game:game_inst|next_board[9][0]  ;
+; game:game_inst|next_board[10][19]       ; Merged with game:game_inst|next_board[10][0] ;
+; game:game_inst|next_board[11][19]       ; Merged with game:game_inst|next_board[11][0] ;
+; game:game_inst|next_board[12][19]       ; Merged with game:game_inst|next_board[12][0] ;
+; game:game_inst|next_board[13][19]       ; Merged with game:game_inst|next_board[13][0] ;
+; game:game_inst|next_board[14][19]       ; Merged with game:game_inst|next_board[14][0] ;
+; game:game_inst|next_board[15][19]       ; Merged with game:game_inst|next_board[15][0] ;
+; game:game_inst|next_board[16][19]       ; Merged with game:game_inst|next_board[16][0] ;
+; game:game_inst|next_board[17][19]       ; Merged with game:game_inst|next_board[17][0] ;
+; game:game_inst|next_board[18][19]       ; Merged with game:game_inst|next_board[18][0] ;
+; game:game_inst|next_board[19][19]       ; Merged with game:game_inst|next_board[19][0] ;
+; game:game_inst|board[0][19]             ; Merged with game:game_inst|board[0][0]       ;
+; game:game_inst|board[1][19]             ; Merged with game:game_inst|board[1][0]       ;
+; game:game_inst|board[2][19]             ; Merged with game:game_inst|board[2][0]       ;
+; game:game_inst|board[3][19]             ; Merged with game:game_inst|board[3][0]       ;
+; game:game_inst|board[4][19]             ; Merged with game:game_inst|board[4][0]       ;
+; game:game_inst|board[5][19]             ; Merged with game:game_inst|board[5][0]       ;
+; game:game_inst|board[6][19]             ; Merged with game:game_inst|board[6][0]       ;
+; game:game_inst|board[7][19]             ; Merged with game:game_inst|board[7][0]       ;
+; game:game_inst|board[8][19]             ; Merged with game:game_inst|board[8][0]       ;
+; game:game_inst|board[9][19]             ; Merged with game:game_inst|board[9][0]       ;
+; game:game_inst|board[10][19]            ; Merged with game:game_inst|board[10][0]      ;
+; game:game_inst|board[11][19]            ; Merged with game:game_inst|board[11][0]      ;
+; game:game_inst|board[12][19]            ; Merged with game:game_inst|board[12][0]      ;
+; game:game_inst|board[13][19]            ; Merged with game:game_inst|board[13][0]      ;
+; game:game_inst|board[14][19]            ; Merged with game:game_inst|board[14][0]      ;
+; game:game_inst|board[15][19]            ; Merged with game:game_inst|board[15][0]      ;
+; game:game_inst|board[16][19]            ; Merged with game:game_inst|board[16][0]      ;
+; game:game_inst|board[17][19]            ; Merged with game:game_inst|board[17][0]      ;
+; game:game_inst|board[18][19]            ; Merged with game:game_inst|board[18][0]      ;
+; game:game_inst|board[19][19]            ; Merged with game:game_inst|board[19][0]      ;
+; game:game_inst|next_board[19][0]        ; Merged with game:game_inst|board[19][0]      ;
+; game:game_inst|next_board[19][18]       ; Merged with game:game_inst|board[19][18]     ;
+; game:game_inst|next_board[19][17]       ; Merged with game:game_inst|board[19][17]     ;
+; game:game_inst|next_board[19][16]       ; Merged with game:game_inst|board[19][16]     ;
+; game:game_inst|next_board[19][15]       ; Merged with game:game_inst|board[19][15]     ;
+; game:game_inst|next_board[19][14]       ; Merged with game:game_inst|board[19][14]     ;
+; game:game_inst|next_board[19][13]       ; Merged with game:game_inst|board[19][13]     ;
+; game:game_inst|next_board[19][12]       ; Merged with game:game_inst|board[19][12]     ;
+; game:game_inst|next_board[19][11]       ; Merged with game:game_inst|board[19][11]     ;
+; game:game_inst|next_board[19][10]       ; Merged with game:game_inst|board[19][10]     ;
+; game:game_inst|next_board[19][9]        ; Merged with game:game_inst|board[19][9]      ;
+; game:game_inst|next_board[19][8]        ; Merged with game:game_inst|board[19][8]      ;
+; game:game_inst|next_board[19][7]        ; Merged with game:game_inst|board[19][7]      ;
+; game:game_inst|next_board[19][6]        ; Merged with game:game_inst|board[19][6]      ;
+; game:game_inst|next_board[19][5]        ; Merged with game:game_inst|board[19][5]      ;
+; game:game_inst|next_board[19][4]        ; Merged with game:game_inst|board[19][4]      ;
+; game:game_inst|next_board[19][3]        ; Merged with game:game_inst|board[19][3]      ;
+; game:game_inst|next_board[19][2]        ; Merged with game:game_inst|board[19][2]      ;
+; game:game_inst|next_board[19][1]        ; Merged with game:game_inst|board[19][1]      ;
+; game:game_inst|next_board[18][0]        ; Merged with game:game_inst|board[18][0]      ;
+; game:game_inst|next_board[17][0]        ; Merged with game:game_inst|board[17][0]      ;
+; game:game_inst|next_board[16][0]        ; Merged with game:game_inst|board[16][0]      ;
+; game:game_inst|next_board[15][0]        ; Merged with game:game_inst|board[15][0]      ;
+; game:game_inst|next_board[14][0]        ; Merged with game:game_inst|board[14][0]      ;
+; game:game_inst|next_board[13][0]        ; Merged with game:game_inst|board[13][0]      ;
+; game:game_inst|next_board[12][0]        ; Merged with game:game_inst|board[12][0]      ;
+; game:game_inst|next_board[11][0]        ; Merged with game:game_inst|board[11][0]      ;
+; game:game_inst|next_board[10][0]        ; Merged with game:game_inst|board[10][0]      ;
+; game:game_inst|next_board[9][0]         ; Merged with game:game_inst|board[9][0]       ;
+; game:game_inst|next_board[8][0]         ; Merged with game:game_inst|board[8][0]       ;
+; game:game_inst|next_board[7][0]         ; Merged with game:game_inst|board[7][0]       ;
+; game:game_inst|next_board[6][0]         ; Merged with game:game_inst|board[6][0]       ;
+; game:game_inst|next_board[5][0]         ; Merged with game:game_inst|board[5][0]       ;
+; game:game_inst|next_board[4][0]         ; Merged with game:game_inst|board[4][0]       ;
+; game:game_inst|next_board[3][0]         ; Merged with game:game_inst|board[3][0]       ;
+; game:game_inst|next_board[2][0]         ; Merged with game:game_inst|board[2][0]       ;
+; game:game_inst|next_board[1][0]         ; Merged with game:game_inst|board[1][0]       ;
+; game:game_inst|next_board[0][0]         ; Merged with game:game_inst|board[0][0]       ;
+; game:game_inst|next_board[0][18]        ; Merged with game:game_inst|board[0][18]      ;
+; game:game_inst|next_board[0][17]        ; Merged with game:game_inst|board[0][17]      ;
+; game:game_inst|next_board[0][16]        ; Merged with game:game_inst|board[0][16]      ;
+; game:game_inst|next_board[0][15]        ; Merged with game:game_inst|board[0][15]      ;
+; game:game_inst|next_board[0][14]        ; Merged with game:game_inst|board[0][14]      ;
+; game:game_inst|next_board[0][13]        ; Merged with game:game_inst|board[0][13]      ;
+; game:game_inst|next_board[0][12]        ; Merged with game:game_inst|board[0][12]      ;
+; game:game_inst|next_board[0][11]        ; Merged with game:game_inst|board[0][11]      ;
+; game:game_inst|next_board[0][10]        ; Merged with game:game_inst|board[0][10]      ;
+; game:game_inst|next_board[0][9]         ; Merged with game:game_inst|board[0][9]       ;
+; game:game_inst|next_board[0][8]         ; Merged with game:game_inst|board[0][8]       ;
+; game:game_inst|next_board[0][7]         ; Merged with game:game_inst|board[0][7]       ;
+; game:game_inst|next_board[0][6]         ; Merged with game:game_inst|board[0][6]       ;
+; game:game_inst|next_board[0][5]         ; Merged with game:game_inst|board[0][5]       ;
+; game:game_inst|next_board[0][4]         ; Merged with game:game_inst|board[0][4]       ;
+; game:game_inst|next_board[0][3]         ; Merged with game:game_inst|board[0][3]       ;
+; game:game_inst|next_board[0][2]         ; Merged with game:game_inst|board[0][2]       ;
+; game:game_inst|next_board[0][1]         ; Merged with game:game_inst|board[0][1]       ;
+; game:game_inst|board[0][0]              ; Stuck at GND due to stuck port data_in       ;
+; game:game_inst|board[1][0]              ; Stuck at GND due to stuck port data_in       ;
+; game:game_inst|board[2][0]              ; Stuck at GND due to stuck port data_in       ;
+; game:game_inst|board[3][0]              ; Stuck at GND due to stuck port data_in       ;
+; game:game_inst|board[4][0]              ; Stuck at GND due to stuck port data_in       ;
+; game:game_inst|board[5][0]              ; Stuck at GND due to stuck port data_in       ;
+; game:game_inst|board[6][0]              ; Stuck at GND due to stuck port data_in       ;
+; game:game_inst|board[7][0]              ; Stuck at GND due to stuck port data_in       ;
+; game:game_inst|board[8][0]              ; Stuck at GND due to stuck port data_in       ;
+; game:game_inst|board[9][0]              ; Stuck at GND due to stuck port data_in       ;
+; game:game_inst|board[10][0]             ; Stuck at GND due to stuck port data_in       ;
+; game:game_inst|board[11][0]             ; Stuck at GND due to stuck port data_in       ;
+; game:game_inst|board[12][0]             ; Stuck at GND due to stuck port data_in       ;
+; game:game_inst|board[13][0]             ; Stuck at GND due to stuck port data_in       ;
+; game:game_inst|board[14][0]             ; Stuck at GND due to stuck port data_in       ;
+; game:game_inst|board[15][0]             ; Stuck at GND due to stuck port data_in       ;
+; game:game_inst|board[16][0]             ; Stuck at GND due to stuck port data_in       ;
+; game:game_inst|board[17][0]             ; Stuck at GND due to stuck port data_in       ;
+; game:game_inst|board[18][0]             ; Stuck at GND due to stuck port data_in       ;
+; game:game_inst|board[19][0]             ; Stuck at GND due to stuck port data_in       ;
+; fsm:fsm_inst|current_state~2            ; Lost fanout                                  ;
+; fsm:fsm_inst|current_state~3            ; Lost fanout                                  ;
+; fsm:fsm_inst|current_state.s_idle       ; Lost fanout                                  ;
+; Total Number of Removed Registers = 119 ;                                              ;
++-----------------------------------------+----------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 774   ;
+; Number of registers using Synchronous Clear  ; 648   ;
+; Number of registers using Synchronous Load   ; 324   ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 725   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; game:game_inst|loadrow[0]              ; 31      ;
+; Total number of inverted registers = 1 ;         ;
++----------------------------------------+---------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------+
+; 3:1                ; 31 bits   ; 62 LEs        ; 31 LEs               ; 31 LEs                 ; Yes        ; |gol|game:game_inst|loadrow[20]   ;
+; 3:1                ; 18 bits   ; 36 LEs        ; 18 LEs               ; 18 LEs                 ; Yes        ; |gol|game:game_inst|board[19][8]  ;
+; 3:1                ; 18 bits   ; 36 LEs        ; 18 LEs               ; 18 LEs                 ; Yes        ; |gol|game:game_inst|board[0][17]  ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 36 LEs               ; 0 LEs                  ; Yes        ; |gol|game:game_inst|board[18][18] ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 36 LEs               ; 0 LEs                  ; Yes        ; |gol|game:game_inst|board[17][17] ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 36 LEs               ; 0 LEs                  ; Yes        ; |gol|game:game_inst|board[16][14] ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 36 LEs               ; 0 LEs                  ; Yes        ; |gol|game:game_inst|board[15][17] ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 36 LEs               ; 0 LEs                  ; Yes        ; |gol|game:game_inst|board[14][18] ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 36 LEs               ; 0 LEs                  ; Yes        ; |gol|game:game_inst|board[13][4]  ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 36 LEs               ; 0 LEs                  ; Yes        ; |gol|game:game_inst|board[12][18] ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 36 LEs               ; 0 LEs                  ; Yes        ; |gol|game:game_inst|board[11][18] ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 36 LEs               ; 0 LEs                  ; Yes        ; |gol|game:game_inst|board[10][18] ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 36 LEs               ; 0 LEs                  ; Yes        ; |gol|game:game_inst|board[9][18]  ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 36 LEs               ; 0 LEs                  ; Yes        ; |gol|game:game_inst|board[8][18]  ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 36 LEs               ; 0 LEs                  ; Yes        ; |gol|game:game_inst|board[7][18]  ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 36 LEs               ; 0 LEs                  ; Yes        ; |gol|game:game_inst|board[6][2]   ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 36 LEs               ; 0 LEs                  ; Yes        ; |gol|game:game_inst|board[5][18]  ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 36 LEs               ; 0 LEs                  ; Yes        ; |gol|game:game_inst|board[4][18]  ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 36 LEs               ; 0 LEs                  ; Yes        ; |gol|game:game_inst|board[3][18]  ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 36 LEs               ; 0 LEs                  ; Yes        ; |gol|game:game_inst|board[2][18]  ;
+; 4:1                ; 18 bits   ; 36 LEs        ; 36 LEs               ; 0 LEs                  ; Yes        ; |gol|game:game_inst|board[1][18]  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------+
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |gol ;
++----------------+-------+--------------------------------------------+
+; Parameter Name ; Value ; Type                                       ;
++----------------+-------+--------------------------------------------+
+; HEIGHT         ; 20    ; Signed Integer                             ;
+; WIDTH          ; 20    ; Signed Integer                             ;
++----------------+-------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: game:game_inst ;
++----------------+-------+------------------------------------+
+; Parameter Name ; Value ; Type                               ;
++----------------+-------+------------------------------------+
+; HEIGHT         ; 20    ; Signed Integer                     ;
+; WIDTH          ; 20    ; Signed Integer                     ;
++----------------+-------+------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: vga:vga_inst ;
++----------------+-------+----------------------------------+
+; Parameter Name ; Value ; Type                             ;
++----------------+-------+----------------------------------+
+; HEIGHT         ; 20    ; Signed Integer                   ;
+; WIDTH          ; 20    ; Signed Integer                   ;
++----------------+-------+----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 451                         ;
+; cycloneiii_ff         ; 774                         ;
+;     ENA               ; 77                          ;
+;     ENA SCLR          ; 324                         ;
+;     ENA SCLR SLD      ; 324                         ;
+;     plain             ; 49                          ;
+; cycloneiii_lcell_comb ; 3531                        ;
+;     arith             ; 49                          ;
+;         2 data inputs ; 49                          ;
+;     normal            ; 3482                        ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 7                           ;
+;         2 data inputs ; 73                          ;
+;         3 data inputs ; 2069                        ;
+;         4 data inputs ; 1332                        ;
+;                       ;                             ;
+; Max LUT depth         ; 10.00                       ;
+; Average LUT depth     ; 4.13                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:18     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 21.1.1 Build 850 06/23/2022 SJ Lite Edition
+    Info: Processing started: Tue Dec  6 11:36:50 2022
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off gol -c gol
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 16 of the 24 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file vgasync.sv
+    Info (12023): Found entity 1: vgasync File: /home/thor/src/gol/vgasync.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file vga.sv
+    Info (12023): Found entity 1: vga File: /home/thor/src/gol/vga.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file game.sv
+    Info (12023): Found entity 1: game File: /home/thor/src/gol/game.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file falling_edge.sv
+    Info (12023): Found entity 1: falling_edge File: /home/thor/src/gol/falling_edge.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file fsm.sv
+    Info (12023): Found entity 1: fsm File: /home/thor/src/gol/fsm.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file gol.sv
+    Info (12023): Found entity 1: gol File: /home/thor/src/gol/gol.sv Line: 1
+Info (12127): Elaborating entity "gol" for the top level hierarchy
+Info (12128): Elaborating entity "falling_edge" for hierarchy "falling_edge:load_fe" File: /home/thor/src/gol/gol.sv Line: 26
+Info (12128): Elaborating entity "fsm" for hierarchy "fsm:fsm_inst" File: /home/thor/src/gol/gol.sv Line: 29
+Info (12128): Elaborating entity "game" for hierarchy "game:game_inst" File: /home/thor/src/gol/gol.sv Line: 36
+Info (12128): Elaborating entity "vga" for hierarchy "vga:vga_inst" File: /home/thor/src/gol/gol.sv Line: 40
+Info (12128): Elaborating entity "vgasync" for hierarchy "vga:vga_inst|vgasync:hvsync" File: /home/thor/src/gol/vga.sv Line: 21
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "vga_sync" is stuck at GND File: /home/thor/src/gol/gol.sv Line: 7
+    Warning (13410): Pin "board[19][19]" is stuck at GND File: /home/thor/src/gol/gol.sv Line: 9
+    Warning (13410): Pin "board[19][0]" is stuck at GND File: /home/thor/src/gol/gol.sv Line: 9
+    Warning (13410): Pin "board[18][19]" is stuck at GND File: /home/thor/src/gol/gol.sv Line: 9
+    Warning (13410): Pin "board[18][0]" is stuck at GND File: /home/thor/src/gol/gol.sv Line: 9
+    Warning (13410): Pin "board[17][19]" is stuck at GND File: /home/thor/src/gol/gol.sv Line: 9
+    Warning (13410): Pin "board[17][0]" is stuck at GND File: /home/thor/src/gol/gol.sv Line: 9
+    Warning (13410): Pin "board[16][19]" is stuck at GND File: /home/thor/src/gol/gol.sv Line: 9
+    Warning (13410): Pin "board[16][0]" is stuck at GND File: /home/thor/src/gol/gol.sv Line: 9
+    Warning (13410): Pin "board[15][19]" is stuck at GND File: /home/thor/src/gol/gol.sv Line: 9
+    Warning (13410): Pin "board[15][0]" is stuck at GND File: /home/thor/src/gol/gol.sv Line: 9
+    Warning (13410): Pin "board[14][19]" is stuck at GND File: /home/thor/src/gol/gol.sv Line: 9
+    Warning (13410): Pin "board[14][0]" is stuck at GND File: /home/thor/src/gol/gol.sv Line: 9
+    Warning (13410): Pin "board[13][19]" is stuck at GND File: /home/thor/src/gol/gol.sv Line: 9
+    Warning (13410): Pin "board[13][0]" is stuck at GND File: /home/thor/src/gol/gol.sv Line: 9
+    Warning (13410): Pin "board[12][19]" is stuck at GND File: /home/thor/src/gol/gol.sv Line: 9
+    Warning (13410): Pin "board[12][0]" is stuck at GND File: /home/thor/src/gol/gol.sv Line: 9
+    Warning (13410): Pin "board[11][19]" is stuck at GND File: /home/thor/src/gol/gol.sv Line: 9
+    Warning (13410): Pin "board[11][0]" is stuck at GND File: /home/thor/src/gol/gol.sv Line: 9
+    Warning (13410): Pin "board[10][19]" is stuck at GND File: /home/thor/src/gol/gol.sv Line: 9
+    Warning (13410): Pin "board[10][0]" is stuck at GND File: /home/thor/src/gol/gol.sv Line: 9
+    Warning (13410): Pin "board[9][19]" is stuck at GND File: /home/thor/src/gol/gol.sv Line: 9
+    Warning (13410): Pin "board[9][0]" is stuck at GND File: /home/thor/src/gol/gol.sv Line: 9
+    Warning (13410): Pin "board[8][19]" is stuck at GND File: /home/thor/src/gol/gol.sv Line: 9
+    Warning (13410): Pin "board[8][0]" is stuck at GND File: /home/thor/src/gol/gol.sv Line: 9
+    Warning (13410): Pin "board[7][19]" is stuck at GND File: /home/thor/src/gol/gol.sv Line: 9
+    Warning (13410): Pin "board[7][0]" is stuck at GND File: /home/thor/src/gol/gol.sv Line: 9
+    Warning (13410): Pin "board[6][19]" is stuck at GND File: /home/thor/src/gol/gol.sv Line: 9
+    Warning (13410): Pin "board[6][0]" is stuck at GND File: /home/thor/src/gol/gol.sv Line: 9
+    Warning (13410): Pin "board[5][19]" is stuck at GND File: /home/thor/src/gol/gol.sv Line: 9
+    Warning (13410): Pin "board[5][0]" is stuck at GND File: /home/thor/src/gol/gol.sv Line: 9
+    Warning (13410): Pin "board[4][19]" is stuck at GND File: /home/thor/src/gol/gol.sv Line: 9
+    Warning (13410): Pin "board[4][0]" is stuck at GND File: /home/thor/src/gol/gol.sv Line: 9
+    Warning (13410): Pin "board[3][19]" is stuck at GND File: /home/thor/src/gol/gol.sv Line: 9
+    Warning (13410): Pin "board[3][0]" is stuck at GND File: /home/thor/src/gol/gol.sv Line: 9
+    Warning (13410): Pin "board[2][19]" is stuck at GND File: /home/thor/src/gol/gol.sv Line: 9
+    Warning (13410): Pin "board[2][0]" is stuck at GND File: /home/thor/src/gol/gol.sv Line: 9
+    Warning (13410): Pin "board[1][19]" is stuck at GND File: /home/thor/src/gol/gol.sv Line: 9
+    Warning (13410): Pin "board[1][0]" is stuck at GND File: /home/thor/src/gol/gol.sv Line: 9
+    Warning (13410): Pin "board[0][19]" is stuck at GND File: /home/thor/src/gol/gol.sv Line: 9
+    Warning (13410): Pin "board[0][0]" is stuck at GND File: /home/thor/src/gol/gol.sv Line: 9
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 3 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 4046 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 22 input pins
+    Info (21059): Implemented 429 output pins
+    Info (21061): Implemented 3595 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 43 warnings
+    Info: Peak virtual memory: 551 megabytes
+    Info: Processing ended: Tue Dec  6 11:37:13 2022
+    Info: Elapsed time: 00:00:23
+    Info: Total CPU time (on all processors): 00:00:32
+
+
