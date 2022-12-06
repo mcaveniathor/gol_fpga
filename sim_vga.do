@@ -13,6 +13,7 @@ vlog -sv -work work [pwd]/game.sv
 vlog -sv -work work [pwd]/falling_edge.sv
 vlog -sv -work work [pwd]/vgasync.sv
 vlog -sv -work work [pwd]/vga.sv
+vlog -sv -work work [pwd]/clock_halver.sv
 vlog -sv -work work [pwd]/gol.sv
 vlog -sv -work work [pwd]/vga_testbench.sv
 
@@ -26,7 +27,7 @@ vsim vga_testbench -voptargs="+acc"
 ### Add waves here ###
 ### Use add wave * to see all signals ###
 add wave clk
-add wave dut/clk_25
+add wave dut/vga_clk
 add wave -radix 10 dut/vga_inst/CounterX
 add wave -radix 10 dut/vga_inst/CounterY
 add wave vga_blank;

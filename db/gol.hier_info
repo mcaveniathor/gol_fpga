@@ -1,6 +1,5 @@
 |gol
-clk => vga_clk~reg0.CLK
-clk => clk_ctr.CLK
+clk => clk.IN1
 run_btn => run_btn.IN1
 load_btn => load_btn.IN1
 reset_btn => reset_btn.IN1
@@ -487,6 +486,12 @@ resetin => Selector0.IN0
 load <= load.DB_MAX_OUTPUT_PORT_TYPE
 run <= run.DB_MAX_OUTPUT_PORT_TYPE
 reset <= reset.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|gol|clock_halver:clkdiv
+clk => div_clk~reg0.CLK
+clk => clk_ctr.CLK
+div_clk <= div_clk~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |gol|game:game_inst

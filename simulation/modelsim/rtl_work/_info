@@ -9,9 +9,34 @@ z2
 !i10f 100
 cModel Technology
 Z0 d/home/thor/src/gol/simulation/modelsim
-vfalling_edge
+vclock_halver
 Z1 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
-Z2 !s110 1670350158
+Z2 !s110 1670366196
+!i10b 1
+!s100 [?o:67PFf8cS1eUFNbObh0
+IFMj66Jz4K:2iB?6eKL9<d3
+S1
+R0
+w1670363471
+8/home/thor/src/gol/clock_halver.sv
+F/home/thor/src/gol/clock_halver.sv
+!i122 6
+L0 1 15
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+Z4 OL;L;2021.2;73
+r1
+!s85 0
+31
+Z5 !s108 1670366196.000000
+!s107 /home/thor/src/gol/clock_halver.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+/home/thor/src/gol|/home/thor/src/gol/clock_halver.sv|
+!i113 0
+Z6 o-sv -work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z7 !s92 -sv -work work +incdir+/home/thor/src/gol -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+Z8 tCvgOpt 0
+vfalling_edge
+R1
+R2
 !i10b 1
 !s100 Id5e@jZ^65]9WnLJagW8J2
 I:0I07iHmkUBO[Ez<2S^>N2
@@ -22,18 +47,18 @@ w1670043369
 F/home/thor/src/gol/falling_edge.sv
 !i122 3
 L0 1 11
-Z3 VDg1SIo80bB@j0V0VzS_@n1
-Z4 OL;L;2021.2;73
+R3
+R4
 r1
 !s85 0
 31
-Z5 !s108 1670350158.000000
+R5
 !s107 /home/thor/src/gol/falling_edge.sv|
 !s90 -reportprogress|300|-sv|-work|work|+incdir+/home/thor/src/gol|/home/thor/src/gol/falling_edge.sv|
 !i113 0
-Z6 o-sv -work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
-Z7 !s92 -sv -work work +incdir+/home/thor/src/gol -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
-Z8 tCvgOpt 0
+R6
+R7
+R8
 vfsm
 R1
 R2
@@ -63,15 +88,15 @@ vgame
 R1
 R2
 !i10b 1
-!s100 Inz@O<]eOD01:I^D7Wgc<0
-IKhB]7:YLHSKZ;U[lz?L:F2
+!s100 4WXEA@d5@Xn@K_eZUfCXh2
+Ic?Fh_;kmd>Z87=QXYEXmQ2
 S1
 R0
-w1670279627
+w1670364482
 8/home/thor/src/gol/game.sv
 F/home/thor/src/gol/game.sv
 !i122 2
-L0 1 396
+L0 1 367
 R3
 R4
 r1
@@ -88,15 +113,15 @@ vgol
 R1
 R2
 !i10b 1
-!s100 1[:gXlWFNl_5j;^?:_4e^0
-IQ`4KN1]<D2O6VSKc]WCWz3
+!s100 TI=jJc0[b;@X?z`5dbQ=e3
+IW_::BL;VFJba_S;a?QU^R1
 S1
 R0
-w1670349999
+w1670363590
 8/home/thor/src/gol/gol.sv
 F/home/thor/src/gol/gol.sv
 !i122 5
-L0 1 38
+L0 1 34
 R3
 R4
 r1
@@ -113,11 +138,11 @@ vvga
 R1
 R2
 !i10b 1
-!s100 oJWh^W33aI2SKdiEkf<WY1
-Ih9Lc0=^T_<KdozKl]1ZUm0
+!s100 Ijdf=d18YL@Y<`RAaN^JB3
+IWEZ;h3]H88@5IATG3>R?52
 S1
 R0
-w1670349931
+w1670366128
 8/home/thor/src/gol/vga.sv
 F/home/thor/src/gol/vga.sv
 !i122 1
@@ -138,11 +163,11 @@ vvgasync
 R1
 R2
 !i10b 1
-!s100 KcZ3PPSJBn:H]gG=POcGR1
-Ik=fLTm;YBn8CiNGniTD6j1
+!s100 1=BCoBXik^]_RX2iRm2AE3
+ICML=DdBU][m?oKo_cnVhM0
 S1
 R0
-w1670350066
+w1670365753
 8/home/thor/src/gol/vgasync.sv
 F/home/thor/src/gol/vgasync.sv
 !i122 0

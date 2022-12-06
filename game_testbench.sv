@@ -1,4 +1,4 @@
-module game_testbench #(parameter HEIGHT=5, parameter WIDTH=5)();
+module game_testbench #(parameter HEIGHT=20, parameter WIDTH=20)();
 logic clk =0, run_btn, load_btn, reset_btn;
 logic [0:WIDTH-3] data_in;
 logic [0:HEIGHT-1][0:WIDTH-1] board;
@@ -63,9 +63,10 @@ initial begin
     end
     repeat(2) @(posedge clk);
     reset();
-    load_row(3'b011);
-    load_row(3'b010);
-    load_row(3'b100);
+    load_row(18'b011);
+    load_row(18'b0111101101);
+    load_row(18'b100);
+    load_row(18'b0110000000001);
     repeat(10) begin
         print_board();
         run();

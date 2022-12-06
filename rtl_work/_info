@@ -14,19 +14,44 @@ R0
 !i10f 100
 cModel Technology
 Z1 d/home/thor/src/gol
-T_opt
-!s110 1670353250
-Vgj[k8L@WD`CIYUXmQ]SXK2
+T_opt1
+!s110 1670366951
+V;47@5Jmk]ITL<D4<F<nJe1
 04 13 4 work vga_testbench fast 0
-=1-000ae431a4f1-638f9162-1809d-62ee
-!s124 OEM10U9 
+=1-000ae431a4f1-638fc6e7-ae038-1b18
+!s124 OEM10U10 
 o-quiet -auto_acc_if_foreign -work work +acc
 Z2 tCvgOpt 0
-n@_opt
+n@_opt1
 OL;O;2021.2;73
-vfalling_edge
+R1
+vclock_halver
 Z3 DXx6 sv_std 3 std 0 22 9oUSJO;AeEaW`l:M@^WG92
-Z4 !s110 1670353249
+Z4 !s110 1670367048
+!i10b 1
+!s100 [?o:67PFf8cS1eUFNbObh0
+ILg[9<1fk22:6Ul1jaa?>^3
+S1
+R1
+w1670363471
+8/home/thor/src/gol/clock_halver.sv
+F/home/thor/src/gol/clock_halver.sv
+!i122 5
+L0 1 15
+Z5 VDg1SIo80bB@j0V0VzS_@n1
+Z6 OL;L;2021.2;73
+r1
+!s85 0
+31
+Z7 !s108 1670367048.000000
+!s107 /home/thor/src/gol/clock_halver.sv|
+!s90 -reportprogress|300|-sv|-work|work|/home/thor/src/gol/clock_halver.sv|
+!i113 0
+Z8 o-sv -work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R2
+vfalling_edge
+R3
+R4
 !i10b 1
 !s100 Id5e@jZ^65]9WnLJagW8J2
 IVWk7T=>:f]5`WT=nNBjJL1
@@ -37,16 +62,16 @@ w1670043369
 F/home/thor/src/gol/falling_edge.sv
 !i122 2
 L0 1 11
-Z5 VDg1SIo80bB@j0V0VzS_@n1
-Z6 OL;L;2021.2;73
+R5
+R6
 r1
 !s85 0
 31
-Z7 !s108 1670353249.000000
+R7
 !s107 /home/thor/src/gol/falling_edge.sv|
 !s90 -reportprogress|300|-sv|-work|work|/home/thor/src/gol/falling_edge.sv|
 !i113 0
-Z8 o-sv -work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R8
 R2
 vfsm
 R3
@@ -76,15 +101,15 @@ vgame
 R3
 R4
 !i10b 1
-!s100 Inz@O<]eOD01:I^D7Wgc<0
-I4BhQm48S`ad^e@LFhM?8L3
+!s100 4WXEA@d5@Xn@K_eZUfCXh2
+IbJ2;JK5ONFgTbU8Yz?:O[0
 S1
 R1
-w1670279627
+w1670364482
 8/home/thor/src/gol/game.sv
 F/home/thor/src/gol/game.sv
 !i122 1
-L0 1 396
+L0 1 367
 R5
 R6
 r1
@@ -98,17 +123,17 @@ R8
 R2
 vgol
 R3
-R4
+Z9 !s110 1670367049
 !i10b 1
-!s100 zYHzDiQL:VATJNc`0Wn4<1
-IHj]KU0U^aVD471DA2?k2Z2
+!s100 aSDEZYAnKzEXI22MG@`T>3
+Io[kQEU<6lZD;5X`Mz=ngM3
 S1
 R1
-w1670353188
+w1670366355
 8/home/thor/src/gol/gol.sv
 F/home/thor/src/gol/gol.sv
-!i122 5
-L0 1 36
+!i122 6
+L0 1 34
 R5
 R6
 r1
@@ -124,11 +149,11 @@ vvga
 R3
 R4
 !i10b 1
-!s100 Ri8b?YoT`PWn6oebl995L1
-Im4fGGA3Ib0lFXMm`hEkY41
+!s100 Ijdf=d18YL@Y<`RAaN^JB3
+IGSek_bk31L6I=c0PDZNkV0
 S1
 R1
-w1670353159
+w1670366128
 8/home/thor/src/gol/vga.sv
 F/home/thor/src/gol/vga.sv
 !i122 4
@@ -146,23 +171,23 @@ R8
 R2
 vvga_testbench
 R3
-R4
+R9
 !i10b 1
-!s100 aT63ZMMNP9bj@j3gS<CZ51
-I3M_Mg0^PYkGU53=gci1Dz3
+!s100 gOg3HOgGFjAcgX@G_:VCK0
+Im9cP18K9GNMUD6DSeb`Qc1
 S1
 R1
-w1670353171
+w1670353667
 8/home/thor/src/gol/vga_testbench.sv
 F/home/thor/src/gol/vga_testbench.sv
-!i122 6
+!i122 7
 L0 1 75
 R5
 R6
 r1
 !s85 0
 31
-R7
+!s108 1670367049.000000
 !s107 /home/thor/src/gol/vga_testbench.sv|
 !s90 -reportprogress|300|-sv|-work|work|/home/thor/src/gol/vga_testbench.sv|
 !i113 0
@@ -176,7 +201,7 @@ R4
 IVnA2F0kYD_E1IzQ1]RL`H0
 S1
 R1
-w1670351194
+w1670365753
 8/home/thor/src/gol/vgasync.sv
 F/home/thor/src/gol/vgasync.sv
 !i122 3

@@ -13,6 +13,7 @@ vlog -sv -work work [pwd]/game.sv
 vlog -sv -work work [pwd]/falling_edge.sv
 vlog -sv -work work [pwd]/vgasync.sv
 vlog -sv -work work [pwd]/vga.sv
+vlog -sv -work work [pwd]/clock_halver.sv
 vlog -sv -work work [pwd]/gol.sv
 vlog -sv -work work [pwd]/game_testbench.sv
 

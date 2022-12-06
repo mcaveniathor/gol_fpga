@@ -21,7 +21,7 @@ def living():
 def dead():
     for i in range(0,256):
         n_ones = num_ones(i)
-        if n_ones == 2:
+        if n_ones == 3:
             out_str = "8\'b" + format(i,'08b') + ":\n\tnext_board[i][j] <= 1;"
             print(out_str)
 

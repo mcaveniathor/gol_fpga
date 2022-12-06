@@ -11,4 +11,5 @@ vlog -sv -work work +incdir+/home/thor/src/gol {/home/thor/src/gol/game.sv}
 vlog -sv -work work +incdir+/home/thor/src/gol {/home/thor/src/gol/falling_edge.sv}
 vlog -sv -work work +incdir+/home/thor/src/gol {/home/thor/src/gol/fsm.sv}
 vlog -sv -work work +incdir+/home/thor/src/gol {/home/thor/src/gol/gol.sv}
+vlog -sv -work work +incdir+/home/thor/src/gol {/home/thor/src/gol/clock_halver.sv}
 

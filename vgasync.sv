@@ -42,3 +42,7 @@ module vgasync(
     assign vga_v_sync = ~vga_VS;
 
 endmodule
+
+
+
+

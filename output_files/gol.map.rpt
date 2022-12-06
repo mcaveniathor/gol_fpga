@@ -1,5 +1,5 @@
 Analysis & Synthesis report for gol
-Tue Dec  6 11:37:13 2022
+Tue Dec  6 13:53:36 2022
 Quartus Prime Version 21.1.1 Build 850 06/23/2022 SJ Lite Edition
 
 
@@ -50,7 +50,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Dec  6 11:37:13 2022       ;
+; Analysis & Synthesis Status        ; Successful - Tue Dec  6 13:53:35 2022       ;
 ; Quartus Prime Version              ; 21.1.1 Build 850 06/23/2022 SJ Lite Edition ;
 ; Revision Name                      ; gol                                         ;
 ; Top-level Entity Name              ; gol                                         ;
@@ -173,7 +173,8 @@ https://fpgasoftware.intel.com/eula.
 ;     Processor 6            ;   0.1%      ;
 ;     Processor 7            ;   0.1%      ;
 ;     Processor 8            ;   0.1%      ;
-;     Processors 9-16        ;   0.0%      ;
+;     Processor 9            ;   0.0%      ;
+;     Processors 10-16       ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -188,39 +189,40 @@ https://fpgasoftware.intel.com/eula.
 ; falling_edge.sv                  ; yes             ; User SystemVerilog HDL File  ; /home/thor/src/gol/falling_edge.sv ;         ;
 ; fsm.sv                           ; yes             ; User SystemVerilog HDL File  ; /home/thor/src/gol/fsm.sv          ;         ;
 ; gol.sv                           ; yes             ; User SystemVerilog HDL File  ; /home/thor/src/gol/gol.sv          ;         ;
+; clock_halver.sv                  ; yes             ; User SystemVerilog HDL File  ; /home/thor/src/gol/clock_halver.sv ;         ;
 +----------------------------------+-----------------+------------------------------+------------------------------------+---------+
 
 
-+------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                ;
-+---------------------------------------------+--------------+
-; Resource                                    ; Usage        ;
-+---------------------------------------------+--------------+
-; Estimated Total logic elements              ; 3,574        ;
-;                                             ;              ;
-; Total combinational functions               ; 3527         ;
-; Logic element usage by number of LUT inputs ;              ;
-;     -- 4 input functions                    ; 1332         ;
-;     -- 3 input functions                    ; 2069         ;
-;     -- <=2 input functions                  ; 126          ;
-;                                             ;              ;
-; Logic elements by mode                      ;              ;
-;     -- normal mode                          ; 3478         ;
-;     -- arithmetic mode                      ; 49           ;
-;                                             ;              ;
-; Total registers                             ; 774          ;
-;     -- Dedicated logic registers            ; 774          ;
-;     -- I/O registers                        ; 0            ;
-;                                             ;              ;
-; I/O pins                                    ; 451          ;
-;                                             ;              ;
-; Embedded Multiplier 9-bit elements          ; 0            ;
-;                                             ;              ;
-; Maximum fan-out node                        ; vga_clk~reg0 ;
-; Maximum fan-out                             ; 773          ;
-; Total fan-out                               ; 16191        ;
-; Average fan-out                             ; 3.11         ;
-+---------------------------------------------+--------------+
++---------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                               ;
++---------------------------------------------+-----------------------------+
+; Resource                                    ; Usage                       ;
++---------------------------------------------+-----------------------------+
+; Estimated Total logic elements              ; 3,574                       ;
+;                                             ;                             ;
+; Total combinational functions               ; 3527                        ;
+; Logic element usage by number of LUT inputs ;                             ;
+;     -- 4 input functions                    ; 1332                        ;
+;     -- 3 input functions                    ; 2069                        ;
+;     -- <=2 input functions                  ; 126                         ;
+;                                             ;                             ;
+; Logic elements by mode                      ;                             ;
+;     -- normal mode                          ; 3478                        ;
+;     -- arithmetic mode                      ; 49                          ;
+;                                             ;                             ;
+; Total registers                             ; 774                         ;
+;     -- Dedicated logic registers            ; 774                         ;
+;     -- I/O registers                        ; 0                           ;
+;                                             ;                             ;
+; I/O pins                                    ; 451                         ;
+;                                             ;                             ;
+; Embedded Multiplier 9-bit elements          ; 0                           ;
+;                                             ;                             ;
+; Maximum fan-out node                        ; clock_halver:clkdiv|div_clk ;
+; Maximum fan-out                             ; 773                         ;
+; Total fan-out                               ; 16191                       ;
+; Average fan-out                             ; 3.11                        ;
++---------------------------------------------+-----------------------------+
 
 
 +------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -228,7 +230,8 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------+--------------+--------------+
 ; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name              ; Entity Name  ; Library Name ;
 +----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------+--------------+--------------+
-; |gol                       ; 3527 (1)            ; 774 (2)                   ; 0           ; 0            ; 0       ; 0         ; 451  ; 0            ; |gol                             ; gol          ; work         ;
+; |gol                       ; 3527 (0)            ; 774 (0)                   ; 0           ; 0            ; 0       ; 0         ; 451  ; 0            ; |gol                             ; gol          ; work         ;
+;    |clock_halver:clkdiv|   ; 1 (1)               ; 2 (2)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |gol|clock_halver:clkdiv         ; clock_halver ; work         ;
 ;    |falling_edge:load_fe|  ; 0 (0)               ; 2 (2)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |gol|falling_edge:load_fe        ; falling_edge ; work         ;
 ;    |falling_edge:reset_fe| ; 1 (1)               ; 2 (2)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |gol|falling_edge:reset_fe       ; falling_edge ; work         ;
 ;    |falling_edge:run_fe|   ; 0 (0)               ; 2 (2)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |gol|falling_edge:run_fe         ; falling_edge ; work         ;
@@ -499,7 +502,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:18     ;
+; Top            ; 00:00:19     ;
 +----------------+--------------+
 
 
@@ -509,7 +512,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 21.1.1 Build 850 06/23/2022 SJ Lite Edition
-    Info: Processing started: Tue Dec  6 11:36:50 2022
+    Info: Processing started: Tue Dec  6 13:53:12 2022
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off gol -c gol
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 24 processors detected
@@ -525,11 +528,14 @@ Info (12021): Found 1 design units, including 1 entities, in source file fsm.sv
     Info (12023): Found entity 1: fsm File: /home/thor/src/gol/fsm.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file gol.sv
     Info (12023): Found entity 1: gol File: /home/thor/src/gol/gol.sv Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file clock_halver.sv
+    Info (12023): Found entity 1: clock_halver File: /home/thor/src/gol/clock_halver.sv Line: 1
 Info (12127): Elaborating entity "gol" for the top level hierarchy
-Info (12128): Elaborating entity "falling_edge" for hierarchy "falling_edge:load_fe" File: /home/thor/src/gol/gol.sv Line: 26
-Info (12128): Elaborating entity "fsm" for hierarchy "fsm:fsm_inst" File: /home/thor/src/gol/gol.sv Line: 29
-Info (12128): Elaborating entity "game" for hierarchy "game:game_inst" File: /home/thor/src/gol/gol.sv Line: 36
-Info (12128): Elaborating entity "vga" for hierarchy "vga:vga_inst" File: /home/thor/src/gol/gol.sv Line: 40
+Info (12128): Elaborating entity "falling_edge" for hierarchy "falling_edge:load_fe" File: /home/thor/src/gol/gol.sv Line: 13
+Info (12128): Elaborating entity "fsm" for hierarchy "fsm:fsm_inst" File: /home/thor/src/gol/gol.sv Line: 16
+Info (12128): Elaborating entity "clock_halver" for hierarchy "clock_halver:clkdiv" File: /home/thor/src/gol/gol.sv Line: 22
+Info (12128): Elaborating entity "game" for hierarchy "game:game_inst" File: /home/thor/src/gol/gol.sv Line: 28
+Info (12128): Elaborating entity "vga" for hierarchy "vga:vga_inst" File: /home/thor/src/gol/gol.sv Line: 32
 Info (12128): Elaborating entity "vgasync" for hierarchy "vga:vga_inst|vgasync:hvsync" File: /home/thor/src/gol/vga.sv Line: 21
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "vga_sync" is stuck at GND File: /home/thor/src/gol/gol.sv Line: 7
@@ -582,9 +588,9 @@ Info (21057): Implemented 4046 device resources after synthesis - the final reso
     Info (21059): Implemented 429 output pins
     Info (21061): Implemented 3595 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 43 warnings
-    Info: Peak virtual memory: 551 megabytes
-    Info: Processing ended: Tue Dec  6 11:37:13 2022
-    Info: Elapsed time: 00:00:23
-    Info: Total CPU time (on all processors): 00:00:32
+    Info: Peak virtual memory: 579 megabytes
+    Info: Processing ended: Tue Dec  6 13:53:36 2022
+    Info: Elapsed time: 00:00:24
+    Info: Total CPU time (on all processors): 00:00:33
 
 
